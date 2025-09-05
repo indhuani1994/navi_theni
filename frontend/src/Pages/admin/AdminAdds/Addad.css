@@ -1,0 +1,103 @@
+/* AddAd.css - Attractive Version */
+.ad-form {
+  max-width: 700px;
+  margin: 30px auto;
+  padding: 30px;
+  background: #ffffff;
+  border-radius: 15px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.ad-form h2 {
+  text-align: center;
+  color: #2f3640;
+  margin-bottom: 20px;
+  font-size: 26px;
+}
+
+.ad-form label {
+  font-weight: 600;
+  color: #2f3640;
+  margin-bottom: 6px;
+}
+
+.ad-form select,
+.ad-form input[type="text"],
+.ad-form input[type="file"] {
+  padding: 12px;
+  border-radius: 8px;
+  border: 1px solid #dcdde1;
+  font-size: 15px;
+  width: 100%;
+  transition: all 0.3s ease;
+  box-sizing: border-box;
+}
+
+.ad-form input[type="file"] {
+  padding: 6px;
+}
+
+.ad-form input[type="text"]::placeholder {
+  color: #aaa;
+}
+
+.ad-form select {
+  background-color: #f5f6fa;
+}
+
+.ad-form input:focus,
+.ad-form select:focus {
+  outline: none;
+  border-color: #00a8ff;
+  box-shadow: 0 0 8px rgba(0, 168, 255, 0.3);
+}
+
+.ad-form button {
+  margin-top: 25px;
+  padding: 14px;
+  background: linear-gradient(45deg, #00a8ff, #9c88ff);
+  color: white;
+  border: none;
+  border-radius: 10px;
+  font-weight: 700;
+  font-size: 16px;
+  cursor: pointer;
+  transition: all 0.4s ease;
+}
+
+.ad-form button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(0, 168, 255, 0.4);
+}
+
+/* Section separation for each category */
+.ad-form .category-section {
+  padding: 15px;
+  border-radius: 10px;
+  border: 1px solid #e1e1e1;
+  background-color: #f7f8fa;
+  animation: fadeIn 0.5s ease-in;
+}
+
+.ad-form .category-section h3 {
+  margin-bottom: 12px;
+  color: #57606f;
+  font-size: 18px;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .ad-form {
+    padding: 20px;
+  }
+}
+
+/* Fade-in animation */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}

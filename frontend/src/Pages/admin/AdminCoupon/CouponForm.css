@@ -1,0 +1,112 @@
+/* Container */
+.coupon-form-container {
+  max-width: 600px;
+  margin: 40px auto;
+  padding: 30px;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0px 8px 25px rgba(0, 0, 0, 0.1);
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  position: relative;
+}
+
+/* Form Title */
+.coupon-form-container h2 {
+  text-align: center;
+  margin-bottom: 25px;
+  color: #2c3e50;
+}
+
+/* Input and Textarea */
+.coupon-form-container input[type="text"],
+.coupon-form-container input[type="date"],
+.coupon-form-container input[type="file"],
+.coupon-form-container textarea {
+  width: 100%;
+  padding: 12px 15px;
+  margin: 8px 0 15px 0;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 14px;
+  transition: 0.3s;
+}
+
+.coupon-form-container input:focus,
+.coupon-form-container textarea:focus {
+  outline: none;
+  border-color: #3498db;
+  box-shadow: 0 0 5px rgba(52, 152, 219, 0.5);
+}
+
+/* Dropdown List */
+.coupon-dropdown {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  max-height: 150px;
+  overflow-y: auto;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  position: absolute;
+  width: 100%;
+  background: #fff;
+  z-index: 10;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+.coupon-dropdown li {
+  padding: 10px 15px;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.coupon-dropdown li:hover {
+  background-color: #3498db;
+  color: #fff;
+  border-radius: 8px;
+}
+
+/* Labels */
+.coupon-form-container label {
+  font-weight: 600;
+  color: #34495e;
+  margin-top: 10px;
+  display: block;
+}
+
+/* Image Preview */
+.coupon-preview {
+  margin-top: 10px;
+  border: 1px solid #ddd;
+  padding: 5px;
+  border-radius: 8px;
+  width: 150px;
+  height: auto;
+  object-fit: cover;
+}
+
+/* Submit Button */
+.coupon-form-container button[type="submit"] {
+  width: 100%;
+  padding: 14px 0;
+  margin-top: 20px;
+  background: linear-gradient(90deg, #3498db, #2980b9);
+  border: none;
+  border-radius: 10px;
+  color: #fff;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.coupon-form-container button[type="submit"]:hover {
+  background: linear-gradient(90deg, #2980b9, #1f6391);
+}
+
+/* Responsive for Mobile */
+@media (max-width: 650px) {
+  .coupon-form-container {
+    padding: 20px;
+  }
+}

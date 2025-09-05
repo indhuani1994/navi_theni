@@ -1,0 +1,96 @@
+/* Container */
+.store-page {
+  padding: 20px;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  background: #f9fafb;
+  min-height: 100vh;
+}
+
+/* Heading */
+.store-page h2 {
+  text-align: center;
+  font-size: 28px;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 20px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+/* Table Styles */
+.store-table {
+  width: 100%;
+  border-collapse: collapse;
+  background: #fff;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+}
+
+.store-table thead {
+  background: linear-gradient(90deg, #4f46e5, #9333ea);
+  color: #fff;
+}
+
+.store-table th,
+.store-table td {
+  padding: 12px 15px;
+  text-align: center;
+  font-size: 14px;
+  border-bottom: 1px solid #eee;
+}
+
+.store-table th {
+  font-weight: 600;
+  letter-spacing: 0.5px;
+}
+
+.store-table tbody tr:nth-child(even) {
+  background: #f3f4f6;
+}
+
+.store-table tbody tr:hover {
+  background: #e0e7ff;
+  transition: 0.3s;
+}
+
+/* Images */
+.thumb {
+  width: 60px;
+  height: 40px;
+  border-radius: 6px;
+  object-fit: cover;
+  border: 1px solid #ddd;
+}
+
+.mini-thumb {
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 1px solid #ccc;
+  margin-left: 5px;
+}
+
+/* Links */
+.store-table a {
+  color: #4f46e5;
+  font-weight: 500;
+  text-decoration: none;
+}
+
+.store-table a:hover {
+  text-decoration: underline;
+  color: #9333ea;
+}
+
+/* Service & Product Section */
+.store-table td div {
+  margin-bottom: 8px;
+  text-align: left;
+}
+
+.store-table td b {
+  color: #111827;
+  font-size: 13px;
+}

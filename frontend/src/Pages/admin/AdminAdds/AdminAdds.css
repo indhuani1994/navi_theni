@@ -1,0 +1,169 @@
+/* Container */
+.ads-list {
+  max-width: 1000px;
+  margin: 30px auto;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  padding: 0 15px;
+}
+
+/* Ad Card */
+.ad-item {
+  background-color: #fff;
+  border-radius: 12px;
+  padding: 20px;
+  margin-bottom: 25px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.ad-item:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+/* Ad Header */
+.ad-item h3 {
+  font-size: 1.4rem;
+  color: #333;
+  margin-bottom: 15px;
+  font-weight: 600;
+}
+
+/* Ad Details */
+.ad-item p {
+  margin: 6px 0;
+  color: #555;
+  line-height: 1.4;
+}
+
+/* Ad Images */
+.ad-item img {
+  max-width: 220px;
+  border-radius: 8px;
+  margin-bottom: 12px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  object-fit: cover;
+}
+
+/* Buttons */
+.ad-item button {
+  padding: 10px 22px;
+  border-radius: 8px;
+  border: none;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  margin-right: 10px;
+  min-width: 80px;
+}
+
+/* Edit/Delete Buttons */
+.ad-item button.edit-btn {
+  background-color: #4caf50;
+  color: #fff;
+}
+.ad-item button.edit-btn:hover {
+  background-color: #43a047;
+}
+.ad-item button.delete-btn {
+  background-color: #f44336;
+  color: #fff;
+}
+.ad-item button.delete-btn:hover {
+  background-color: #e53935;
+}
+
+/* Edit Form Container */
+.edit-form-container {
+  background-color: #f8fafc;
+  border-radius: 12px;
+  padding: 25px;
+  margin-top: 15px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+/* Form Groups */
+.edit-form-container .form-group {
+  display: flex;
+  flex-direction: column;
+}
+
+.edit-form-container label {
+  font-weight: 600;
+  margin-bottom: 6px;
+  color: #333;
+}
+
+.edit-form-container input,
+.edit-form-container select {
+  padding: 10px 14px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  font-size: 1rem;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.edit-form-container input:focus,
+.edit-form-container select:focus {
+  border-color: #4caf50;
+  box-shadow: 0 0 6px rgba(76, 175, 80, 0.3);
+}
+
+/* File Input */
+.edit-form-container input[type="file"] {
+  padding: 6px 12px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  font-size: 0.95rem;
+}
+
+/* Form Buttons */
+.edit-form-container .form-buttons {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.edit-form-container .form-buttons button {
+  padding: 10px 22px;
+  border-radius: 10px;
+  font-weight: 600;
+  cursor: pointer;
+  border: none;
+  font-size: 0.95rem;
+  transition: all 0.2s ease;
+}
+
+.edit-form-container .form-buttons .save-btn {
+  background-color: #4caf50;
+  color: #fff;
+}
+.edit-form-container .form-buttons .save-btn:hover {
+  background-color: #43a047;
+}
+
+.edit-form-container .form-buttons .cancel-btn {
+  background-color: #f44336;
+  color: #fff;
+}
+.edit-form-container .form-buttons .cancel-btn:hover {
+  background-color: #e53935;
+}
+
+/* Responsive */
+@media screen and (max-width: 768px) {
+  .ad-item img {
+    max-width: 100%;
+  }
+  .edit-form-container input,
+  .edit-form-container select {
+    font-size: 0.95rem;
+  }
+  .edit-form-container .form-buttons {
+    flex-direction: column;
+    gap: 10px;
+  }
+}

@@ -1,0 +1,177 @@
+/* Container */
+.coupon-container {
+  max-width: 1200px;
+  margin: 30px auto;
+  padding: 20px;
+  background: #f9fafb;
+  border-radius: 12px;
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Heading */
+.coupon-container h2 {
+  text-align: center;
+  font-size: 28px;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 20px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+/* Table */
+.coupon-table {
+  width: 100%;
+  border-collapse: collapse;
+  background: #fff;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+}
+
+.coupon-table th,
+.coupon-table td {
+  padding: 12px 15px;
+  text-align: left;
+  font-size: 14px;
+  border-bottom: 1px solid #eee;
+}
+
+.coupon-table thead {
+  background: linear-gradient(90deg, #4f46e5, #9333ea);
+  color: #fff;
+}
+
+.coupon-table tbody tr:nth-child(even) {
+  background: #f3f4f6;
+}
+
+.coupon-table tbody tr:hover {
+  background: #e0e7ff;
+  transition: 0.3s;
+}
+
+/* Images */
+.coupon-table img {
+  width: 60px;
+  height: 60px;
+  object-fit: cover;
+  border-radius: 6px;
+  border: 1px solid #ddd;
+}
+
+/* Buttons */
+.edit-btn,
+.delete-btn {
+  padding: 5px 10px;
+  margin-right: 5px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 13px;
+  font-weight: 500;
+  transition: 0.3s;
+}
+
+.edit-btn {
+  background-color: #ffc107;
+  color: #fff;
+}
+
+.edit-btn:hover {
+  background-color: #e0a800;
+}
+
+.delete-btn {
+  background-color: #dc3545;
+  color: #fff;
+}
+
+.delete-btn:hover {
+  background-color: #b02a37;
+}
+
+/* Edit Form */
+.edit-form-row td {
+  background: #f0f4ff;
+  padding: 20px;
+}
+
+.edit-form-container {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.edit-form-container input[type="text"],
+.edit-form-container input[type="date"],
+.edit-form-container input[type="file"] {
+  padding: 8px 10px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  width: 100%;
+  font-size: 14px;
+}
+
+.edit-form-container input[type="file"] {
+  padding: 3px;
+}
+
+/* Offer Title Fields */
+.edit-form-container input[name="highlight"],
+.edit-form-container input[name="normal"] {
+  width: 48%;
+}
+
+.edit-form-container input[name="normal"] {
+  margin-left: 4%;
+}
+
+/* Form Buttons */
+.form-buttons {
+  margin-top: 15px;
+}
+
+.form-buttons button {
+  padding: 8px 15px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 500;
+  margin-right: 10px;
+  transition: 0.3s;
+}
+
+.save-btn {
+  background-color: #4f46e5;
+  color: #fff;
+}
+
+.save-btn:hover {
+  background-color: #4338ca;
+}
+
+.cancel-btn {
+  background-color: #6b7280;
+  color: #fff;
+}
+
+.cancel-btn:hover {
+  background-color: #4b5563;
+}
+
+/* Responsive */
+@media (max-width: 1000px) {
+  .coupon-table th,
+  .coupon-table td {
+    font-size: 12px;
+    padding: 8px 10px;
+  }
+
+  .edit-form-container input[name="highlight"],
+  .edit-form-container input[name="normal"] {
+    width: 100%;
+    margin-left: 0;
+  }
+}

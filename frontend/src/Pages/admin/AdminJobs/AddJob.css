@@ -1,0 +1,172 @@
+.add-job-container {
+  max-width: 700px;
+  margin: 20px auto;
+  padding: 20px;
+  background: #f5f6fa;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+.add-job-container h2 {
+  text-align: center;
+  margin-bottom: 20px;
+  color: #2f3640;
+}
+
+.add-job-container form {
+  display: flex;
+  flex-direction: column;
+}
+
+.add-job-container label {
+  margin-top: 10px;
+  font-weight: bold;
+}
+
+.add-job-container input,
+.add-job-container textarea,
+.add-job-container select {
+  padding: 8px;
+  margin-top: 5px;
+  border-radius: 5px;
+  border: 1px solid #dcdde1;
+  font-size: 14px;
+}
+
+.add-job-container textarea {
+  resize: vertical;
+}
+
+.add-job-container button {
+  margin-top: 20px;
+  padding: 10px;
+  background-color: #44bd32;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.add-job-container button:hover {
+  background-color: #2ecc71;
+}
+
+.store-dropdown {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  max-height: 120px;
+  overflow-y: auto;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  background: #fff;
+  position: absolute;
+  width: 100%;
+  z-index: 10;
+}
+
+.store-dropdown li {
+  padding: 8px;
+  cursor: pointer;
+}
+
+.store-dropdown li:hover {
+  background-color: #f1f2f6;
+}
+/* AddJob.css */
+
+.add-job-container {
+  max-width: 600px;
+  margin: 20px auto;
+  position: relative; /* important for absolute dropdown */
+}
+
+.store-dropdown {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  max-height: 150px;
+  overflow-y: auto;
+  background: #fff;
+  position: absolute; /* position relative to parent container */
+  width: 100%;       /* full width of input */
+  top: 100%;         /* directly below input */
+  left: 0;
+  z-index: 1000;     /* above other elements */
+}
+
+.store-dropdown li {
+  padding: 8px;
+  cursor: pointer;
+}
+
+.store-dropdown li:hover {
+  background-color: #f0f0f0;
+}
+
+.add-job-container {
+  max-width: 600px;
+  margin: 20px auto;
+  padding: 20px;
+  background: #f5f6fa;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  position: relative; /* important for absolute dropdown */
+}
+
+.store-dropdown {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  max-height: 150px;
+  overflow-y: auto;
+  background: #fff;
+  position: absolute;
+  width: 100%;
+  top: 100%;
+  left: 0;
+  z-index: 1000;
+}
+
+.store-dropdown li {
+  padding: 8px;
+  cursor: pointer;
+}
+
+.store-dropdown li:hover {
+  background-color: #f0f0f0;
+}
+.store-input-wrapper {
+  position: relative; /* relative wrapper for absolute dropdown */
+  width: 100%;
+}
+
+.store-dropdown {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  background: #fff;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  max-height: 150px;
+  overflow-y: auto;
+  z-index: 1000;
+}
+
+.store-dropdown li {
+  padding: 8px;
+  cursor: pointer;
+}
+
+.store-dropdown li:hover {
+  background-color: #f0f0f0;
+}
+
+
+
