@@ -38,17 +38,9 @@ const AdminHeader = () => {
     <>
       <header className="admin-header">
         <div className="admin-header-left">
-          <h1>Dream Cart</h1>
+          <h1>Theni</h1>
         </div>
-        <div className="admin-header-right">
-          {user && <span className="admin-username">Welcome, {user.name}</span>}
-          <button className="profile-btn" onClick={() => setShowProfile(true)}>
-            Profile
-          </button>
-          <button className="logout-btn" onClick={handleLogout}>
-            Logout
-          </button>
-        </div>
+       
       </header>
 
       {/* 🔹 Profile Modal */}

@@ -1,9 +1,9 @@
 const mongoose = require("mongoose");
 
 const advertisementSchema = new mongoose.Schema({
-  category: {
+ category: {
     type: String,
-    enum: ["hero", "strap", "coupon", "slider"],
+    enum: ["hero", "strap", "coupon", "slider", "logo"],  // Added "logo"
     required: true
   },
 
@@ -21,9 +21,12 @@ const advertisementSchema = new mongoose.Schema({
   strap: {
     image: { type: String }
   },
-
+ logo: {
+    image: { type: String }
+  },
   // COUPON specific fields
   coupon: {
+    couponName:{type:String},
     image: { type: String }
   },
 

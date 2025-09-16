@@ -12,7 +12,10 @@ async function createDefaultAdmin() {
       await User.create({
         name: "Super Admin",
         email: adminEmail,
-        password: hashpassword,
+        // password: hashpassword,
+        age:25,
+        gender:"male",
+        phoneNumber:9898989898,
         role: "admin",
       });
 

@@ -19,29 +19,19 @@ const storage = multer.diskStorage({
   },
 });
 
-// File filter (only images allowed)
+// File filter (✅ allow ANY image type)
 const fileFilter = (req, file, cb) => {
-  const allowedTypes = /jpeg|jpg|png|gif/;
-  const extname = allowedTypes.test(
-    path.extname(file.originalname).toLowerCase()
-  );
-  const mimetype = allowedTypes.test(file.mimetype);
-  if (extname && mimetype) {
+  if (file.mimetype.startsWith("image/")) {
     cb(null, true);
   } else {
-    cb(new Error("Only images are allowed!"));
+    cb(new Error("Only image files are allowed!"), false);
   }
 };
 
 const upload = multer({
   storage,
-  limits: { fileSize: 5 * 1024 * 1024 }, // 5MB max
+  limits: { fileSize: 20 * 1024 * 1024 }, // 20MB max (change as needed)
   fileFilter,
 });
-
-
-
-
-
 
 module.exports = upload;

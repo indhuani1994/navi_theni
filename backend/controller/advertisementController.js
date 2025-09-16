@@ -15,8 +15,8 @@ exports.createAdvertisement = async (req, res) => {
     let strap = req.body.strap ? JSON.parse(req.body.strap) : {};
     let coupon = req.body.coupon ? JSON.parse(req.body.coupon) : {};
     let slider = req.body.slider ? JSON.parse(req.body.slider) : {};
+    let logo = req.body.logo ? JSON.parse(req.body.logo) : {}; // Added logo parsing
 
-    // Attach uploaded images
     if (category === "hero" && files) {
       hero.image = getFilePath(files, "hero[image]");
     }
@@ -29,6 +29,9 @@ exports.createAdvertisement = async (req, res) => {
     if (category === "slider" && files) {
       slider.logoImage = getFilePath(files, "slider[logoImage]");
     }
+    if (category === "logo" && files) {
+      logo.image = getFilePath(files, "logo[image]");  // Handle uploaded logo image
+    }
 
     const ad = await Advertisement.create({
       category,
@@ -36,6 +39,7 @@ exports.createAdvertisement = async (req, res) => {
       strap,
       coupon,
       slider,
+      logo  // Save logo data
     });
 
     res.status(201).json({ message: "Advertisement created successfully", ad });
@@ -75,16 +79,27 @@ exports.updateAdvertisement = async (req, res) => {
     let strap = req.body.strap ? JSON.parse(req.body.strap) : {};
     let coupon = req.body.coupon ? JSON.parse(req.body.coupon) : {};
     let slider = req.body.slider ? JSON.parse(req.body.slider) : {};
+    let logo = req.body.logo ? JSON.parse(req.body.logo) : {}; // Added logo parsing
 
-    // Replace images if new files uploaded
-    if (category === "hero" && files) hero.image = getFilePath(files, "hero[image]") || hero.image;
-    if (category === "strap" && files) strap.image = getFilePath(files, "strap[image]") || strap.image;
-    if (category === "coupon" && files) coupon.image = getFilePath(files, "coupon[image]") || coupon.image;
-    if (category === "slider" && files) slider.logoImage = getFilePath(files, "slider[logoImage]") || slider.logoImage;
+    if (category === "hero" && files) {
+      hero.image = getFilePath(files, "hero[image]") || hero.image;
+    }
+    if (category === "strap" && files) {
+      strap.image = getFilePath(files, "strap[image]") || strap.image;
+    }
+    if (category === "coupon" && files) {
+      coupon.image = getFilePath(files, "coupon[image]") || coupon.image;
+    }
+    if (category === "slider" && files) {
+      slider.logoImage = getFilePath(files, "slider[logoImage]") || slider.logoImage;
+    }
+    if (category === "logo" && files) {
+      logo.image = getFilePath(files, "logo[image]") || logo.image;
+    }
 
     const ad = await Advertisement.findByIdAndUpdate(
       req.params.id,
-      { category, hero, strap, coupon, slider },
+      { category, hero, strap, coupon, slider, logo },
       { new: true }
     );
 

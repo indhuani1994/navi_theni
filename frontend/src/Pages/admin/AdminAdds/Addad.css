@@ -1,4 +1,4 @@
-/* AddAd.css - Attractive Version */
+/* AddAd.css - Enhanced with Validation Styles */
 .ad-form {
   max-width: 700px;
   margin: 30px auto;
@@ -17,6 +17,20 @@
   color: #2f3640;
   margin-bottom: 20px;
   font-size: 26px;
+}
+
+.ad-form h3 {
+  color: #2f3640;
+  margin-bottom: 15px;
+  font-size: 20px;
+  border-bottom: 2px solid #00a8ff;
+  padding-bottom: 8px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
 }
 
 .ad-form label {
@@ -39,6 +53,8 @@
 
 .ad-form input[type="file"] {
   padding: 6px;
+  background-color: #f5f6fa;
+  cursor: pointer;
 }
 
 .ad-form input[type="text"]::placeholder {
@@ -56,7 +72,27 @@
   box-shadow: 0 0 8px rgba(0, 168, 255, 0.3);
 }
 
-.ad-form button {
+/* Error states */
+.ad-form input.error,
+.ad-form select.error {
+  border-color: #e84118;
+  box-shadow: 0 0 5px rgba(232, 65, 24, 0.3);
+}
+
+.error-text {
+  color: #e84118;
+  font-size: 14px;
+  margin-top: 4px;
+}
+
+.file-name {
+  font-size: 14px;
+  color: #718093;
+  margin-top: 5px;
+  font-style: italic;
+}
+
+.submit-btn {
   margin-top: 25px;
   padding: 14px;
   background: linear-gradient(45deg, #00a8ff, #9c88ff);
@@ -69,24 +105,33 @@
   transition: all 0.4s ease;
 }
 
-.ad-form button:hover {
+.submit-btn:hover:not(:disabled) {
   transform: translateY(-2px);
   box-shadow: 0 8px 20px rgba(0, 168, 255, 0.4);
 }
 
+.submit-btn:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
+.submit-btn.submitting {
+  background: linear-gradient(45deg, #7f8fa6, #718093);
+  animation: pulse 1.5s infinite;
+}
+
 /* Section separation for each category */
-.ad-form .category-section {
-  padding: 15px;
+.category-section {
+  padding: 20px;
   border-radius: 10px;
   border: 1px solid #e1e1e1;
   background-color: #f7f8fa;
   animation: fadeIn 0.5s ease-in;
 }
 
-.ad-form .category-section h3 {
-  margin-bottom: 12px;
-  color: #57606f;
-  font-size: 18px;
+/* Required field indicator */
+.ad-form input[placeholder*="*"] {
+  background-color: #fffaf2;
 }
 
 /* Responsive */
@@ -96,8 +141,14 @@
   }
 }
 
-/* Fade-in animation */
+/* Animations */
 @keyframes fadeIn {
   from { opacity: 0; transform: translateY(10px); }
   to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes pulse {
+  0% { opacity: 1; }
+  50% { opacity: 0.7; }
+  100% { opacity: 1; }
 }

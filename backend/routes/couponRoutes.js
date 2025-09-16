@@ -16,11 +16,13 @@ router.post(
   upload.fields([
     { name: "image", maxCount: 1 },
     { name: "addsPoster", maxCount: 1 },
+    { name: "watermarkImage", maxCount: 1 },
   ]),
   async (req, res, next) => {
     try {
       if (req.files.image) req.body.image = "/uploads/stores/" + req.files.image[0].filename;
       if (req.files.addsPoster) req.body.addsPoster = "/uploads/stores/" + req.files.addsPoster[0].filename;
+      if (req.files.watermarkImage) req.body.watermarkImage = "/uploads/stores/" + req.files.watermarkImage[0].filename;
 
       await createCoupon(req, res);
     } catch (err) {
@@ -35,12 +37,14 @@ router.put(
   upload.fields([
     { name: "image", maxCount: 1 },
     { name: "addsPoster", maxCount: 1 },
+     { name: "watermarkImage", maxCount: 1 },
   ]),
   async (req, res, next) => {
     try {
       // Attach uploaded file paths to req.body
       if (req.files.image) req.body.image = "/uploads/stores/" + req.files.image[0].filename;
       if (req.files.addsPoster) req.body.addsPoster = "/uploads/stores/" + req.files.addsPoster[0].filename;
+      if (req.files.watermarkImage) req.body.watermarkImage = "/uploads/stores/" + req.files.watermarkImage[0].filename;
 
       await updateCoupon(req, res);
     } catch (err) {

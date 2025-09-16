@@ -1,8 +1,8 @@
 .add-store-page {
-  max-width: 700px;
+  max-width: 800px;
   margin: 30px auto;
   background: #fff;
-  padding: 25px;
+  padding: 30px;
   border-radius: 12px;
   box-shadow: 0px 6px 18px rgba(0, 0, 0, 0.1);
   font-family: "Segoe UI", sans-serif;
@@ -10,49 +10,175 @@
 
 .add-store-page h2 {
   text-align: center;
-  margin-bottom: 20px;
+  margin-bottom: 25px;
   color: #4f46e5;
+  font-size: 28px;
+}
+
+.add-store-page h3 {
+  color: #4f46e5;
+  border-bottom: 2px solid #e5e7eb;
+  padding-bottom: 10px;
+  margin-top: 30px;
+  margin-bottom: 20px;
+}
+
+.form-section {
+  margin-bottom: 30px;
+  padding: 20px;
+  border-radius: 8px;
+  background: #f9fafb;
 }
 
 .store-form {
   display: flex;
   flex-direction: column;
-  gap: 12px;
+  gap: 20px;
 }
 
-.store-form label {
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-bottom: 15px;
+}
+
+.form-group label {
   font-weight: 600;
-  color: #333;
+  color: #374151;
 }
 
-.store-form input,
-.store-form textarea {
-  padding: 10px;
-  border: 1px solid #ddd;
+.form-group input,
+.form-group textarea,
+.form-group select {
+  padding: 12px;
+  border: 1px solid #d1d5db;
   border-radius: 8px;
-  font-size: 14px;
+  font-size: 16px;
+  transition: all 0.2s;
 }
 
-.store-form input:focus,
-.store-form textarea:focus {
+.form-group input:focus,
+.form-group textarea:focus,
+.form-group select:focus {
   border-color: #4f46e5;
   outline: none;
-  box-shadow: 0px 0px 5px rgba(79, 70, 229, 0.5);
+  box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.2);
+}
+
+.form-group input.error,
+.form-group textarea.error,
+.form-group select.error {
+  border-color: #ef4444;
+}
+
+.error-text {
+  color: #ef4444;
+  font-size: 14px;
+  margin-top: 5px;
+}
+
+.preview-box {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-top: 10px;
+}
+
+.preview-img {
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+  border-radius: 6px;
+  border: 1px solid #ddd;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.block-item {
+  position: relative;
+  background: white;
+  padding: 20px;
+  border-radius: 8px;
+  margin-bottom: 20px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  border: 1px solid #e5e7eb;
+}
+
+.remove-btn {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: #ef4444;
+  color: white;
+  border: none;
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+  cursor: pointer;
+  font-size: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.2s;
+}
+
+.remove-btn:hover:not(:disabled) {
+  background: #dc2626;
+}
+
+.remove-btn:disabled {
+  background: #9ca3af;
+  cursor: not-allowed;
+}
+
+.add-btn {
+  padding: 10px 15px;
+  background: #10b981;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: background 0.2s;
+}
+
+.add-btn:hover {
+  background: #059669;
 }
 
 .submit-btn {
-  padding: 12px;
+  padding: 15px;
   background: linear-gradient(90deg, #4f46e5, #9333ea);
   color: white;
   font-weight: bold;
   border: none;
   border-radius: 8px;
   cursor: pointer;
-  margin-top: 15px;
-  transition: 0.3s;
+  margin-top: 20px;
+  font-size: 18px;
+  transition: all 0.3s;
 }
 
-.submit-btn:hover {
+.submit-btn:hover:not(:disabled) {
   opacity: 0.9;
   transform: translateY(-2px);
+  box-shadow: 0 4px 6px rgba(79, 70, 229, 0.3);
+}
+
+.submit-btn:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+  transform: none;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .add-store-page {
+    padding: 20px;
+    margin: 15px;
+  }
+  
+  .form-section {
+    padding: 15px;
+  }
 }

@@ -14,6 +14,23 @@ const AdminSideBar = () => {
       <nav className="admin-sidebar-nav">
         <NavLink to="/admin/dashboard" className="sidebar-link">Dashboard</NavLink>
 
+         {/* Ads Dropdown */}
+        <div>
+          <button
+            className="sidebar-link dropdown-btn"
+            onClick={() => setOpenAds(!openAds)}
+          >
+            Ads {openAds ? "▲" : "▼"}
+          </button>
+          {openAds && (
+            <div className="dropdown-menu">
+              <NavLink to="/admin/ads" className="sidebar-sublink">All Ads</NavLink>
+              <NavLink to="/admin/addads" className="sidebar-sublink">Add Ad</NavLink>
+            </div>
+          )}
+        </div>
+
+
         {/* Stores Dropdown */}
         <div>
           <button
@@ -62,23 +79,9 @@ const AdminSideBar = () => {
           )}
         </div>
 
-        {/* Ads Dropdown */}
-        <div>
-          <button
-            className="sidebar-link dropdown-btn"
-            onClick={() => setOpenAds(!openAds)}
-          >
-            Ads {openAds ? "▲" : "▼"}
-          </button>
-          {openAds && (
-            <div className="dropdown-menu">
-              <NavLink to="/admin/ads" className="sidebar-sublink">All Ads</NavLink>
-              <NavLink to="/admin/addads" className="sidebar-sublink">Add Ad</NavLink>
-            </div>
-          )}
-        </div>
-
+       
         <NavLink to="/admin/enquiry" className="sidebar-link">Enquiry</NavLink>
+        <NavLink to="/admin/user" className="sidebar-link">users</NavLink>
       </nav>
     </aside>
   );

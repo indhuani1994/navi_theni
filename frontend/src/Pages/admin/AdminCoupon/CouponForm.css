@@ -17,6 +17,12 @@
   color: #2c3e50;
 }
 
+/* Form Group */
+.form-group {
+  margin-bottom: 15px;
+  position: relative;
+}
+
 /* Input and Textarea */
 .coupon-form-container input[type="text"],
 .coupon-form-container input[type="date"],
@@ -24,11 +30,12 @@
 .coupon-form-container textarea {
   width: 100%;
   padding: 12px 15px;
-  margin: 8px 0 15px 0;
+  margin: 8px 0 5px 0;
   border: 1px solid #ccc;
   border-radius: 8px;
   font-size: 14px;
   transition: 0.3s;
+  box-sizing: border-box;
 }
 
 .coupon-form-container input:focus,
@@ -36,6 +43,21 @@
   outline: none;
   border-color: #3498db;
   box-shadow: 0 0 5px rgba(52, 152, 219, 0.5);
+}
+
+/* Error states */
+.coupon-form-container input.error,
+.coupon-form-container textarea.error,
+.coupon-form-container input[type="file"].error {
+  border-color: #e74c3c;
+  box-shadow: 0 0 5px rgba(231, 76, 60, 0.3);
+}
+
+.error-text {
+  color: #e74c3c;
+  font-size: 12px;
+  margin-top: 3px;
+  display: block;
 }
 
 /* Dropdown List */
@@ -85,6 +107,15 @@
   object-fit: cover;
 }
 
+/* Additional Fields */
+.additional-fields {
+  border: 1px dashed #3498db;
+  padding: 15px;
+  border-radius: 8px;
+  margin-bottom: 15px;
+  background-color: #f8f9fa;
+}
+
 /* Submit Button */
 .coupon-form-container button[type="submit"] {
   width: 100%;
@@ -100,13 +131,24 @@
   transition: 0.3s;
 }
 
-.coupon-form-container button[type="submit"]:hover {
+.coupon-form-container button[type="submit"]:hover:not(:disabled) {
   background: linear-gradient(90deg, #2980b9, #1f6391);
+}
+
+.coupon-form-container button[type="submit"]:disabled,
+.coupon-form-container button[type="submit"].submitting {
+  background: #95a5a6;
+  cursor: not-allowed;
 }
 
 /* Responsive for Mobile */
 @media (max-width: 650px) {
   .coupon-form-container {
     padding: 20px;
+    margin: 20px;
+  }
+  
+  .additional-fields {
+    padding: 10px;
   }
 }

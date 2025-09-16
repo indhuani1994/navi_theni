@@ -93,40 +93,88 @@ exports.getCouponById = async (req, res) => {
 
 // PUT: Update Coupon
 // PUT: Update Coupon
+// PUT: Update Coupon
+// PUT: Update Coupon
 exports.updateCoupon = async (req, res) => {
   try {
     const { storeName, offerTitle, location, couponCode } = req.body;
 
     if (!couponCode) return res.status(400).json({ message: "Coupon code is required" });
 
-    // Parse nested JSON if needed
-    const parsedOfferTitle = typeof offerTitle === "string" ? JSON.parse(offerTitle) : offerTitle;
-    const parsedLocation = typeof location === "string" ? JSON.parse(location) : location;
-
     // Prepare update data
-    const updateData = { ...req.body, offerTitle: parsedOfferTitle, location: parsedLocation };
+    const updateData = { ...req.body };
+
+    // Safely parse nested fields if they are strings
+    if (offerTitle) {
+      updateData.offerTitle = typeof offerTitle === "string" 
+        ? JSON.parse(offerTitle) 
+        : offerTitle;
+    }
+
+    if (location) {
+      updateData.location = typeof location === "string" 
+        ? JSON.parse(location) 
+        : location;
+    }
+
+    // Handle storeName - it could be ObjectId or string
+    if (storeName) {
+      if (mongoose.Types.ObjectId.isValid(storeName)) {
+        // It's a valid ObjectId - reference existing store
+        const store = await Store.findById(storeName);
+        if (!store) return res.status(400).json({ message: "Store not found" });
+        
+        updateData.storeName = storeName;
+        updateData.category = store.category;
+        updateData.location = store.location;
+        updateData.plan = store.plan;
+        // Clear the embedded storeInfo since we're using reference
+        updateData.storeInfo = undefined;
+      } else {
+        // It's a string - use embedded store info
+        // Make sure required fields are provided
+        if (!updateData.category || !updateData.location || !updateData.plan) {
+          return res.status(400).json({ 
+            message: "For new stores, category, location, and plan are required" 
+          });
+        }
+        
+        // Store the store info embedded in the coupon
+        updateData.storeInfo = {
+          storeName: storeName,
+          category: updateData.category,
+          location: updateData.location,
+          plan: updateData.plan
+        };
+        // Clear the reference since we're using embedded data
+        updateData.storeName = undefined;
+      }
+    }
 
     // Attach files if uploaded
     if (req.files) {
       if (req.files.image) updateData.image = "/uploads/stores/" + req.files.image[0].filename;
       if (req.files.addsPoster) updateData.addsPoster = "/uploads/stores/" + req.files.addsPoster[0].filename;
+      if (req.files.watermarkImage) updateData.watermarkImage = "/uploads/stores/" + req.files.watermarkImage[0].filename;
     }
 
-    // Update store-related info if storeName is changed
-    if (storeName) {
-      const store = await Store.findById(storeName);
-      if (!store) return res.status(400).json({ message: "Store not found" });
-      updateData.category = store.category;
-      updateData.location = store.location;
-      updateData.plan = store.plan;
-    }
-
-    const coupon = await Coupon.findByIdAndUpdate(req.params.id, updateData, { new: true });
+    const coupon = await Coupon.findByIdAndUpdate(
+      req.params.id, 
+      updateData, 
+      { new: true, runValidators: true }
+    );
+    
     if (!coupon) return res.status(404).json({ message: "Coupon not found" });
 
     res.json({ message: "Coupon updated successfully", coupon });
   } catch (err) {
     console.error("Error updating coupon:", err);
+    
+    // Handle JSON parsing errors specifically
+    if (err instanceof SyntaxError && err.message.includes("JSON")) {
+      return res.status(400).json({ message: "Invalid JSON format in offerTitle or location" });
+    }
+    
     res.status(500).json({ error: err.message });
   }
 };

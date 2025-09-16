@@ -11,6 +11,8 @@ import AddStore from './Pages/admin/AdminStores/AddStore'
 import CouponForm from './Pages/admin/AdminCoupon/CouponForm'
 import AddJob from './Pages/admin/AdminJobs/AddJob'
 import AddAd from './Pages/admin/AdminAdds/AddAd'
+import Dashboard from './Pages/admin/AdminDashBoard/AdminDashBoard'
+import UserTable from './Pages/admin/UserTable'
 
 const App = () => {
   return (
@@ -49,7 +51,20 @@ const App = () => {
           <Route path='/admin/enquiry' element={
             <AdminLayout><AdminEnquiry /></AdminLayout>
           } />
+
+          <Route path='/admin/dashboard' element={
+            <AdminLayout><Dashboard /></AdminLayout>
+          } />
+
+               <Route path='/admin/user' element={
+            <AdminLayout><UserTable /></AdminLayout>
+          } />
+
+
           </Routes>
+            
+
+          
 
 
 

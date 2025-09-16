@@ -12,7 +12,9 @@ const uploadAds = upload.fields([
   { name: "strap[image]", maxCount: 10 },
   { name: "coupon[image]", maxCount: 10 },
   { name: "slider[logoImage]", maxCount: 10 },
+  { name: "logo[image]", maxCount: 10 },  // Added logo image upload support
 ]);
+
 
 router.post("/",uploadAds, createAdvertisement);        // Create Ad
 router.get("/", getAdvertisements);           // Get All Ads
