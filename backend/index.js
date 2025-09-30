@@ -11,13 +11,35 @@ const advertisementRoutes = require("./routes/advertisementRoutes");
 const enquiryRoutes = require("./routes/enquiryRoutes");
 const path = require("path");
 
-const app = express();
 dotenv.config();
-app.use(cors());
+
+const app = express();
+
+// CORS setup
+// Allow local dev and deployed frontend URL
+const allowedOrigins = [
+  "http://localhost:5173", // your local frontend
+  "https://your-frontend-deploy-url.com" // replace with your deployed frontend URL
+];
+
+app.use(
+  cors({
+    origin: function (origin, callback) {
+      // allow requests with no origin like Postman
+      if (!origin) return callback(null, true);
+      if (allowedOrigins.indexOf(origin) === -1) {
+        const msg = `The CORS policy for this site does not allow access from the specified Origin.`;
+        return callback(new Error(msg), false);
+      }
+      return callback(null, true);
+    },
+    credentials: true
+  })
+);
+
 app.use(express.json());
 app.use("/uploads", express.static(path.join(__dirname, "uploads")));
 
-// Use correct environment variable name (uppercase)
 const port = process.env.PORT || 4000;
 
 app.use("/api/users", userroutes);
