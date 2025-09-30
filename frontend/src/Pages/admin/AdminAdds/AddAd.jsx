@@ -193,7 +193,7 @@ const AddAd = ({ refreshAds }) => {
     }
 
     try {
-      await axios.post("http://localhost:4000/api/ads", formData, {
+      await axios.post("https://navi-theni-2.onrender.com/api/ads", formData, {
         headers: { "Content-Type": "multipart/form-data" }
       });
 

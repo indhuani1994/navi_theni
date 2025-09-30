@@ -13,7 +13,7 @@ const AdminJobs = () => {
   // Fetch jobs from backend
   const fetchJobs = async () => {
     try {
-      const res = await axios.get("http://localhost:4000/api/jobs");
+      const res = await axios.get("https://navi-theni-2.onrender.com/api/jobs");
       setJobs(res.data);
       setLoading(false);
     } catch (err) {
@@ -30,7 +30,7 @@ const AdminJobs = () => {
   const handleDelete = async (id) => {
     if (window.confirm("Are you sure you want to delete this job?")) {
       try {
-        await axios.delete(`http://localhost:4000/api/jobs/${id}`);
+        await axios.delete(`https://navi-theni-2.onrender.com/api/jobs/${id}`);
         setJobs(jobs.filter((job) => job._id !== id));
       } catch (err) {
         console.error("Error deleting job:", err);
@@ -77,7 +77,7 @@ const AdminJobs = () => {
   const handleEditSubmit = async (e) => {
     e.preventDefault();
     try {
-      await axios.put(`http://localhost:4000/api/jobs/${editingJob}`, {
+      await axios.put(`https://navi-theni-2.onrender.com/api/jobs/${editingJob}`, {
         ...editData,
         skills: editData.skills.split(",").map((s) => s.trim()),
       });

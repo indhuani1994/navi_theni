@@ -9,7 +9,7 @@ const AdminEnquiry = () => {
   const fetchEnquiries = async () => {
     try {
       setLoading(true);
-      const res = await axios.get("http://localhost:4000/api/enquiries");
+      const res = await axios.get("https://navi-theni-2.onrender.com/api/enquiries");
       setEnquiries(res.data);
     } catch (err) {
       console.error(err);
@@ -24,7 +24,7 @@ const AdminEnquiry = () => {
 
   const updateStatus = async (id, newStatus) => {
     try {
-      await axios.put(`http://localhost:4000/api/enquiries/${id}`, { status: newStatus });
+      await axios.put(`https://navi-theni-2.onrender.com/api/enquiries/${id}`, { status: newStatus });
       fetchEnquiries();
     } catch (err) {
       console.error(err);

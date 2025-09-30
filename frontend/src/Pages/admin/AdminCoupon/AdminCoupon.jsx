@@ -17,7 +17,7 @@ const AdminCoupon = () => {
   // Fetch all coupons
   const fetchCoupons = async () => {
     try {
-      const res = await axios.get("http://localhost:4000/api/coupons");
+      const res = await axios.get("https://navi-theni-2.onrender.com/api/coupons");
       setCoupons(res.data);
     } catch (err) {
       console.error("Error fetching coupons:", err);
@@ -185,7 +185,7 @@ const submitEdit = async () => {
 
 
     const response = await axios.put(
-      `http://localhost:4000/api/coupons/${editingId}`, 
+      `https://navi-theni-2.onrender.com/api/coupons/${editingId}`, 
       formData, 
       {
         headers: { "Content-Type": "multipart/form-data" },
@@ -221,7 +221,7 @@ const submitEdit = async () => {
   const deleteCoupon = async (id) => {
     if (window.confirm("Are you sure you want to delete this coupon?")) {
       try {
-        await axios.delete(`http://localhost:4000/api/coupons/${id}`);
+        await axios.delete(`https://navi-theni-2.onrender.com/api/coupons/${id}`);
         setSuccessMessage("Coupon deleted successfully!");
         setTimeout(() => {
           fetchCoupons();
@@ -314,10 +314,10 @@ const submitEdit = async () => {
                 <td>{coupon.offerTitle?.normal || "-"}</td>
                 <td>{coupon.expiredDate ? new Date(coupon.expiredDate).toLocaleDateString() : "-"}</td>
                 <td>
-                  {coupon.image && <img src={`http://localhost:4000${coupon.image}`} alt="Coupon" width="80" />}
+                  {coupon.image && <img src={`https://navi-theni-2.onrender.com${coupon.image}`} alt="Coupon" width="80" />}
                 </td>
                 <td>
-                  {coupon.addsPoster && <img src={`http://localhost:4000${coupon.addsPoster}`} alt="Poster" width="80" />}
+                  {coupon.addsPoster && <img src={`https://navi-theni-2.onrender.com${coupon.addsPoster}`} alt="Poster" width="80" />}
                 </td>
                 <td>
                   <button className="edit-btn" onClick={() => startEdit(coupon)}>Edit</button>
@@ -487,7 +487,7 @@ const submitEdit = async () => {
   {errors.watermark && <span className="error-text">{errors.watermark}</span>}
   {editData.watermarkImage && !editData.watermarkFile && (
     <div className="current-file">
-      Current: <img src={`http://localhost:4000${editData.watermarkImage}`} alt="Current Watermark" width="40" />
+      Current: <img src={`https://navi-theni-2.onrender.com${editData.watermarkImage}`} alt="Current Watermark" width="40" />
     </div>
   )}
 </div>
@@ -514,7 +514,7 @@ const submitEdit = async () => {
 {editData.couponId && (
   <div className="coupon-preview-box">
     <img
-      src={`http://localhost:4000${
+      src={`https://navi-theni-2.onrender.com${
         coupons.find((c) => c._id === editData.couponId)?.image
       }`}
       alt="Coupon Preview"
@@ -537,7 +537,7 @@ const submitEdit = async () => {
                             {errors.image && <span className="error-text">{errors.image}</span>}
                             {editData.image && !imageFile && (
                               <div className="current-file">
-                                Current: <img src={`http://localhost:4000${editData.image}`} alt="Current" width="40" />
+                                Current: <img src={`https://navi-theni-2.onrender.com${editData.image}`} alt="Current" width="40" />
                               </div>
                             )}
                           </div>
@@ -553,7 +553,7 @@ const submitEdit = async () => {
                             {errors.poster && <span className="error-text">{errors.poster}</span>}
                             {editData.addsPoster && !posterFile && (
                               <div className="current-file">
-                                Current: <img src={`http://localhost:4000${editData.addsPoster}`} alt="Current Poster" width="40" />
+                                Current: <img src={`https://navi-theni-2.onrender.com${editData.addsPoster}`} alt="Current Poster" width="40" />
                               </div>
                             )}
                           </div>

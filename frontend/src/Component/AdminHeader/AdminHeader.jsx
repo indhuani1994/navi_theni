@@ -23,7 +23,7 @@ const AdminHeader = () => {
     try {
       const token = localStorage.getItem("token");
       const res = await axios.put(
-        "http://localhost:4000/api/admin/change-password",
+        "https://navi-theni-2.onrender.com/api/admin/change-password",
         { password },
         { headers: { token } }
       );

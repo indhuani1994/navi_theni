@@ -23,7 +23,7 @@ const AdminStore = () => {
   const fetchStores = async () => {
     try {
       setIsLoading(true);
-      const res = await axios.get("http://localhost:4000/api/stores");
+      const res = await axios.get("https://navi-theni-2.onrender.com/api/stores");
       setStores(Array.isArray(res.data) ? res.data : []);
     } catch (err) {
       console.error("Error fetching stores:", err);
@@ -171,9 +171,9 @@ const AdminStore = () => {
   if (item && item.image && editingStoreId) {
     try {
       if (type === "services") {
-        await axios.delete(`http://localhost:4000/api/stores/${editingStoreId}/services/${index}`);
+        await axios.delete(`https://navi-theni-2.onrender.com/api/stores/${editingStoreId}/services/${index}`);
       } else if (type === "products") {
-        await axios.delete(`http://localhost:4000/api/stores/${editingStoreId}/products/${index}`);
+        await axios.delete(`https://navi-theni-2.onrender.com/api/stores/${editingStoreId}/products/${index}`);
       }
     } catch (err) {
       console.error(`Error deleting ${type.slice(0, -1)}:`, err);
@@ -227,7 +227,7 @@ const AdminStore = () => {
 const deleteService = async (storeId, serviceIndex) => {
   if (window.confirm("Are you sure you want to delete this service?")) {
     try {
-      await axios.delete(`http://localhost:4000/api/stores/${storeId}/services/${serviceIndex}`);
+      await axios.delete(`https://navi-theni-2.onrender.com/api/stores/${storeId}/services/${serviceIndex}`);
       alert("✅ Service deleted successfully!");
       fetchStores(); // Refresh the stores list
       
@@ -248,7 +248,7 @@ const deleteService = async (storeId, serviceIndex) => {
 const deleteProduct = async (storeId, productIndex) => {
   if (window.confirm("Are you sure you want to delete this product?")) {
     try {
-      await axios.delete(`http://localhost:4000/api/stores/${storeId}/products/${productIndex}`);
+      await axios.delete(`https://navi-theni-2.onrender.com/api/stores/${storeId}/products/${productIndex}`);
       alert("✅ Product deleted successfully!");
       fetchStores(); // Refresh the stores list
       
@@ -337,7 +337,7 @@ const handleUpdate = async (e) => {
     });
 
     await axios.put(
-      `http://localhost:4000/api/stores/${editingStoreId}`,
+      `https://navi-theni-2.onrender.com/api/stores/${editingStoreId}`,
       data,
       { headers: { "Content-Type": "multipart/form-data" } }
     );
@@ -355,7 +355,7 @@ const handleUpdate = async (e) => {
   const deleteStore = async (id) => {
     if (window.confirm("Are you sure you want to delete this store?")) {
       try {
-        await axios.delete(`http://localhost:4000/api/stores/${id}`);
+        await axios.delete(`https://navi-theni-2.onrender.com/api/stores/${id}`);
         fetchStores();
       } catch (err) {
         console.error("Error deleting store:", err);
@@ -382,7 +382,7 @@ const handleUpdate = async (e) => {
               <div className="store-banner">
                 {viewData.coverImage && (
                   <img 
-                    src={`http://localhost:4000/${viewData.coverImage}`} 
+                    src={`https://navi-theni-2.onrender.com/${viewData.coverImage}`} 
                     alt="Cover" 
                     className="cover-img"
                   />
@@ -390,7 +390,7 @@ const handleUpdate = async (e) => {
                 <div className="store-profile">
                   {viewData.logoImage && (
                     <img 
-                      src={`http://localhost:4000/${viewData.logoImage}`} 
+                      src={`https://navi-theni-2.onrender.com/${viewData.logoImage}`} 
                       alt="Logo" 
                       className="logo-img"
                     />
@@ -485,7 +485,7 @@ const handleUpdate = async (e) => {
         <div key={index} className="item-card">
           {service.image && (
             <img 
-              src={`http://localhost:4000/${service.image}`} 
+              src={`https://navi-theni-2.onrender.com/${service.image}`} 
               alt={service.title} 
               className="item-img"
             />
@@ -515,7 +515,7 @@ const handleUpdate = async (e) => {
         <div key={index} className="item-card">
           {product.image && (
             <img 
-              src={`http://localhost:4000/${product.image}`} 
+              src={`https://navi-theni-2.onrender.com/${product.image}`} 
               alt={product.title} 
               className="item-img"
             />
@@ -544,7 +544,7 @@ const handleUpdate = async (e) => {
                       {viewData.galleryImages.map((img, index) => (
                         <div key={index} className="gallery-item">
                           <img 
-                            src={`http://localhost:4000/${img}`} 
+                            src={`https://navi-theni-2.onrender.com/${img}`} 
                             alt={`Gallery ${index + 1}`} 
                             className="gallery-img"
                           />
@@ -824,7 +824,7 @@ const handleUpdate = async (e) => {
                       <div className="image-preview">
                         <span>Current Image:</span>
                         <img
-                          src={`http://localhost:4000/${service.image}`}
+                          src={`https://navi-theni-2.onrender.com/${service.image}`}
                           alt="service"
                           className="thumb"
                         />
@@ -888,7 +888,7 @@ const handleUpdate = async (e) => {
                       <div className="image-preview">
                         <span>Current Image:</span>
                         <img
-                          src={`http://localhost:4000/${product.image}`}
+                          src={`https://navi-theni-2.onrender.com/${product.image}`}
                           alt="product"
                           className="thumb"
                         />
@@ -920,7 +920,7 @@ const handleUpdate = async (e) => {
                     <div className="image-preview">
                       <span>Current Cover:</span>
                       <img
-                        src={`http://localhost:4000/${editData.coverImage}`}
+                        src={`https://navi-theni-2.onrender.com/${editData.coverImage}`}
                         alt="cover"
                         className="thumb"
                       />
@@ -938,7 +938,7 @@ const handleUpdate = async (e) => {
                     <div className="image-preview">
                       <span>Current Logo:</span>
                       <img
-                        src={`http://localhost:4000/${editData.logoImage}`}
+                        src={`https://navi-theni-2.onrender.com/${editData.logoImage}`}
                         alt="logo"
                         className="thumb"
                       />
@@ -953,7 +953,7 @@ const handleUpdate = async (e) => {
                     {editData.galleryImages?.map((img, i) => (
                       <div key={i} className="gallery-item">
                         <img
-                          src={`http://localhost:4000/${img}`}
+                          src={`https://navi-theni-2.onrender.com/${img}`}
                           alt="gallery"
                           className="thumb"
                         />
@@ -1004,7 +1004,7 @@ const handleUpdate = async (e) => {
                     <div className="store-header">
                       {store.logoImage && (
                         <img
-                          src={`http://localhost:4000/${store.logoImage}`}
+                          src={`https://navi-theni-2.onrender.com/${store.logoImage}`}
                           alt="logo"
                           className="mini-thumb"
                         />

@@ -28,7 +28,7 @@ const AddJob = () => {
   useEffect(() => {
     const fetchStores = async () => {
       try {
-        const res = await axios.get("http://localhost:4000/api/stores");
+        const res = await axios.get("https://navi-theni-2.onrender.com/api/stores");
         setStores(res.data);
         setFilteredStores(res.data);
       } catch (err) {
@@ -86,7 +86,7 @@ const AddJob = () => {
         skills: formData.skills.split(","),
         storeName: formData.storeId || storeInput
       };
-      const res = await axios.post("http://localhost:4000/api/jobs", payload);
+      const res = await axios.post("https://navi-theni-2.onrender.com/api/jobs", payload);
       alert("Job created successfully!");
       console.log(res.data);
       setFormData({

@@ -46,7 +46,7 @@ const AdminAdds = () => {
   // Fetch all ads
   const fetchAds = async () => {
     try {
-      const res = await axios.get("http://localhost:4000/api/ads");
+      const res = await axios.get("https://navi-theni-2.onrender.com/api/ads");
       setAds(res.data);
     } catch (err) {
       console.error(err);
@@ -357,7 +357,7 @@ const AdminAdds = () => {
         }
       }
 
-      await axios.put(`http://localhost:4000/api/ads/${editingAdId}`, fd, {
+      await axios.put(`https://navi-theni-2.onrender.com/api/ads/${editingAdId}`, fd, {
         headers: { "Content-Type": "multipart/form-data" },
       });
 
@@ -377,7 +377,7 @@ const AdminAdds = () => {
   const deleteAd = async (id) => {
     if (!window.confirm("Are you sure you want to delete this ad?")) return;
     try {
-      await axios.delete(`http://localhost:4000/api/ads/${id}`);
+      await axios.delete(`https://navi-theni-2.onrender.com/api/ads/${id}`);
       fetchAds();
     } catch (err) {
       console.error(err);
@@ -474,7 +474,7 @@ const AdminAdds = () => {
                         <div className="image-preview">
                           <p>Current Image:</p>
                           <img
-                            src={`http://localhost:4000/${formData.hero.existingImage}`}
+                            src={`https://navi-theni-2.onrender.com/${formData.hero.existingImage}`}
                             alt="Current hero"
                             className="thumb"
                           />
@@ -498,7 +498,7 @@ const AdminAdds = () => {
                       <div className="image-preview">
                         <p>Current Image:</p>
                         <img
-                          src={`http://localhost:4000/${formData.strap.existingImage}`}
+                          src={`https://navi-theni-2.onrender.com/${formData.strap.existingImage}`}
                           alt="Current strap"
                           className="thumb"
                         />
@@ -521,7 +521,7 @@ const AdminAdds = () => {
                       <div className="image-preview">
                         <p>Current Image:</p>
                         <img
-                          src={`http://localhost:4000/${formData.coupon.existingImage}`}
+                          src={`https://navi-theni-2.onrender.com/${formData.coupon.existingImage}`}
                           alt="Current coupon"
                           className="thumb"
                         />
@@ -614,7 +614,7 @@ const AdminAdds = () => {
                         <div className="image-preview">
                           <p>Current Logo:</p>
                           <img
-                            src={`http://localhost:4000/${formData.slider.existingLogoImage}`}
+                            src={`https://navi-theni-2.onrender.com/${formData.slider.existingLogoImage}`}
                             alt="Current slider logo"
                             className="thumb"
                           />
@@ -638,7 +638,7 @@ const AdminAdds = () => {
                       <div className="image-preview">
                         <p>Current Image:</p>
                         <img
-                          src={`http://localhost:4000/${formData.logo.existingImage}`}
+                          src={`https://navi-theni-2.onrender.com/${formData.logo.existingImage}`}
                           alt="Current logo"
                           className="thumb"
                         />
@@ -673,7 +673,7 @@ const AdminAdds = () => {
                   <div className="ad-content">
                     {ad.hero.image && (
                       <div className="image-container">
-                        <img src={`http://localhost:4000/${ad.hero.image}`} alt="hero" className="preview-image" />
+                        <img src={`https://navi-theni-2.onrender.com/${ad.hero.image}`} alt="hero" className="preview-image" />
                       </div>
                     )}
                     <p><strong>Title:</strong> {ad.hero.title}</p>
@@ -690,7 +690,7 @@ const AdminAdds = () => {
                 {ad.category === "strap" && ad.strap?.image && (
                   <div className="ad-content">
                     <div className="image-container">
-                      <img src={`http://localhost:4000/${ad.strap.image}`} alt="strap" className="preview-image" />
+                      <img src={`https://navi-theni-2.onrender.com/${ad.strap.image}`} alt="strap" className="preview-image" />
                     </div>
                   </div>
                 )}
@@ -698,7 +698,7 @@ const AdminAdds = () => {
                 {ad.category === "coupon" && ad.coupon?.image && (
                   <div className="ad-content">
                     <div className="image-container">
-                      <img src={`http://localhost:4000/${ad.coupon.image}`} alt="coupon" className="preview-image" />
+                      <img src={`https://navi-theni-2.onrender.com/${ad.coupon.image}`} alt="coupon" className="preview-image" />
                     </div>
                   </div>
                 )}
@@ -707,7 +707,7 @@ const AdminAdds = () => {
                   <div className="ad-content">
                     {ad.slider.logoImage && (
                       <div className="image-container">
-                        <img src={`http://localhost:4000/${ad.slider.logoImage}`} alt="slider logo" className="preview-image" />
+                        <img src={`https://navi-theni-2.onrender.com/${ad.slider.logoImage}`} alt="slider logo" className="preview-image" />
                       </div>
                     )}
                     <p><strong>Title:</strong> {ad.slider.title}</p>
@@ -728,7 +728,7 @@ const AdminAdds = () => {
                 {ad.category === "logo" && ad.logo?.image && (
                   <div className="ad-content">
                     <div className="image-container">
-                      <img src={`http://localhost:4000/${ad.logo.image}`} alt="logo" className="preview-image" />
+                      <img src={`https://navi-theni-2.onrender.com/${ad.logo.image}`} alt="logo" className="preview-image" />
                     </div>
                   </div>
                 )}

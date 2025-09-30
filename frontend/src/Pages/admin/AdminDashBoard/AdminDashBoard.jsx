@@ -42,12 +42,12 @@ const Dashboard = () => {
           couponsRes,
           enquiriesRes
         ] = await Promise.all([
-          axios.get('http://localhost:4000/api/stores'),
-          axios.get('http://localhost:4000/api/jobs'),
-          axios.get('http://localhost:4000/api/ads'),
-          axios.get('http://localhost:4000/api/users'),
-          axios.get('http://localhost:4000/api/coupons'),
-          axios.get('http://localhost:4000/api/enquiries')
+          axios.get('https://navi-theni-2.onrender.com/api/stores'),
+          axios.get('https://navi-theni-2.onrender.com/api/jobs'),
+          axios.get('https://navi-theni-2.onrender.com/api/ads'),
+          axios.get('https://navi-theni-2.onrender.com/api/users'),
+          axios.get('https://navi-theni-2.onrender.com/api/coupons'),
+          axios.get('https://navi-theni-2.onrender.com/api/enquiries')
         ]);
 
         // Count store plans

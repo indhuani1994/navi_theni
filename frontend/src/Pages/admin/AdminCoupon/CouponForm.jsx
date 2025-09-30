@@ -42,7 +42,7 @@ const [coupons, setCoupons] = useState([]);
   useEffect(() => {
     const fetchStores = async () => {
       try {
-        const res = await axios.get("http://localhost:4000/api/stores");
+        const res = await axios.get("https://navi-theni-2.onrender.com/api/stores");
         setStores(res.data);
         setFilteredStores(res.data);
       } catch (err) {
@@ -55,7 +55,7 @@ const [coupons, setCoupons] = useState([]);
   useEffect(() => {
   const fetchCoupons = async () => {
     try {
-      const res = await axios.get("http://localhost:4000/api/ads");
+      const res = await axios.get("https://navi-theni-2.onrender.com/api/ads");
       // Filter only coupons
       const couponAds = res.data.filter(ad => ad.category === "coupon");
       setCoupons(couponAds);
@@ -294,7 +294,7 @@ if (watermarkImage) data.append("watermarkImage", watermarkImage);
 
 
     try {
-      const res = await axios.post("http://localhost:4000/api/coupons", data, {
+      const res = await axios.post("https://navi-theni-2.onrender.com/api/coupons", data, {
         headers: { "Content-Type": "multipart/form-data" },
       });
 
@@ -532,7 +532,7 @@ if (watermarkImage) data.append("watermarkImage", watermarkImage);
 {formData.selectedCoupon && (
   <div className="coupon-preview-box">
     <img
-      src={`http://localhost:4000/${coupons.find(c => c._id === formData.selectedCoupon)?.coupon.image}`}
+      src={`https://navi-theni-2.onrender.com/${coupons.find(c => c._id === formData.selectedCoupon)?.coupon.image}`}
       alt="Coupon Preview"
       className="coupon-preview"
     />

@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 
-const API_URL = "http://localhost:4000/api/users";
+const API_URL = "https://navi-theni-2.onrender.com/api/users";
 
 export default function UserTable() {
   const [users, setUsers] = useState([]);

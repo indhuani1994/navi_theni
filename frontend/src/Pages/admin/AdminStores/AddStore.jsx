@@ -309,7 +309,7 @@ const AddStore = () => {
         }
       });
 
-      await axios.post("http://localhost:4000/api/stores", data, {
+      await axios.post("https://navi-theni-2.onrender.com/api/stores", data, {
         headers: { "Content-Type": "multipart/form-data" },
       });
 
